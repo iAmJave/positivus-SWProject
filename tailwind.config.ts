@@ -1,63 +1,105 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        primary: "#B9FF66",
+        secondary: "#191A23",
+        accent: "#F3F3F3",
+
+        brand: {
+          25: "#f2f7ff",
+          50: "#ecf3ff",
+          100: "#dde9ff",
+          200: "#c2d6ff",
+          300: "#9cb9ff",
+          400: "#7592ff",
+          500: "#465fff",
+          600: "#3641f5",
+          700: "#2a31d8",
+          800: "#252dae",
+          900: "#262e89",
+          950: "#161950",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+
+        gray: {
+          25: "#fcfcfd",
+          50: "#f9fafb",
+          100: "#f2f4f7",
+          200: "#e4e7ec",
+          300: "#d0d5dd",
+          400: "#98a2b3",
+          500: "#667085",
+          600: "#475467",
+          700: "#344054",
+          800: "#1d2939",
+          900: "#101828",
+          950: "#0c111d",
         },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+
+        success: { 500: "#12b76a" },
+        error: { 500: "#f04438" },
+        warning: { 500: "#f79009" },
+      },
+
+      fontSize: {
+        h1: "60px font-medium",
+        h2: "40px",
+        h3: "30px",
+        h4: "20px",
+        p: "18px",
+        h1Mobile: "43px",
+        h2Mobile: "36px",
+        h3Mobile: "26px",
+        h4Mobile: "18px",
+        pMobile: "16px",
+      },
+
+      screens: {
+        "2xsm": "375px",
+        "xsm": "425px",
+        "3xl": "2000px",
+      },
+
+      boxShadow: {
+        "theme-sm": "0 1px 3px rgba(16,24,40,.1)",
+        "theme-md": "0 4px 8px rgba(16,24,40,.1)",
+        "theme-lg": "0 12px 16px rgba(16,24,40,.08)",
+      },
+
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+}
+
+export default config
